@@ -1,0 +1,698 @@
+1. Embedded System
+Definition
+An embedded system is a computer system designed to perform a specific function inside a larger device.
+
+Examples: Washing machine, microwave, ATM, smart watch, traffic light, car ABS.
+
+Characteristics
+Performs a specific task
+
+Real-time operation
+
+Small size
+
+Low power consumption
+
+Reliable
+
+Low cost
+
+Hardware + software combination
+
+2. Microcontroller
+A microcontroller is a small computer on a single chip containing:
+
+CPU + Memory + I/O ports + Timers + Communication interfaces
+
+Examples:
+
+ATmega328P
+
+8051
+
+PIC
+
+ARM microcontrollers
+
+3. Microprocessor vs Microcontroller
+Microprocessor	Microcontroller
+Mainly contains CPU	CPU + RAM + ROM + I/O on one chip
+Requires external components	Requires fewer external components
+Used for general-purpose computing	Used for specific tasks
+Higher power consumption	Lower power consumption
+More expensive system	Cheaper system
+Example: Intel i5	Example: ATmega328P
+
+Easy trick:
+Microprocessor = CPU only
+Microcontroller = Complete small computer
+
+4. AVR Microcontroller
+AVR is a family of 8-bit RISC microcontrollers developed by Atmel, now owned by Microchip.
+
+Types of AVR
+TinyAVR
+
+MegaAVR
+
+XMEGA
+
+AVR Dx series
+
+ATmega328P belongs to MegaAVR family.
+
+5. ATmega328P Architecture
+ATmega328P is an 8-bit AVR microcontroller commonly used in Arduino Uno.
+
+Important features
+8-bit CPU
+
+32 KB Flash memory
+
+2 KB SRAM
+
+1 KB EEPROM
+
+23 programmable I/O pins
+
+Timers/Counters
+
+ADC
+
+UART
+
+SPI
+
+I²C
+
+Interrupts
+
+Internal architecture
+Basic flow:
+
+CPU ↔ Buses ↔ Memory + I/O + Timers + ADC + Communication
+
+Main blocks:
+
+CPU
+
+32 × 8-bit registers
+
+Flash
+
+SRAM
+
+EEPROM
+
+GPIO ports
+
+ADC
+
+Timers/Counters
+
+USART
+
+SPI
+
+I²C
+
+Interrupt controller
+
+6. IoT
+Definition
+Internet of Things (IoT) is a system in which physical devices are connected to the internet to collect, exchange and process data.
+
+Examples:
+
+Smart home
+
+Smart watch
+
+Smart agriculture
+
+Smart healthcare
+
+Smart parking
+
+IoT Architecture
+Usually explained using 4 layers:
+
+1. Perception Layer
+Sensors collect data.
+
+2. Network Layer
+Transfers data using Wi-Fi, Bluetooth, 4G/5G, etc.
+
+3. Processing Layer
+Cloud/servers process and store data.
+
+4. Application Layer
+Provides services to users.
+
+Flow:
+Sensors → Network → Processing/Cloud → Application/User
+
+7. Importance of IoT in Society
+Smart homes
+
+Better healthcare monitoring
+
+Smart agriculture
+
+Traffic management
+
+Energy saving
+
+Industrial automation
+
+Improved productivity
+
+Real-time monitoring
+
+8. IoT Challenges & Security Issues
+Challenges
+High implementation cost
+
+Compatibility issues
+
+Large amount of data
+
+Network dependency
+
+Power consumption
+
+Scalability
+
+Security issues
+Data theft
+
+Unauthorized access
+
+Weak passwords
+
+Malware attacks
+
+Privacy problems
+
+Device hacking
+
+9. Raspberry Pi
+Raspberry Pi is a small, low-cost single-board computer.
+
+Unlike a simple microcontroller, it can run an operating system such as Linux.
+
+Uses
+IoT projects
+
+Robotics
+
+Web servers
+
+Home automation
+
+Media centers
+
+AI/computer vision
+
+10. Raspberry Pi Pin Diagram
+Raspberry Pi commonly has a 40-pin GPIO header.
+
+Important pins:
+
+5V → power
+
+3.3V → power
+
+GND → ground
+
+GPIO pins → digital input/output
+
+I²C → communication
+
+SPI → communication
+
+UART → serial communication
+
+11. Arduino vs Raspberry Pi
+Arduino	Raspberry Pi
+Microcontroller board	Single-board computer
+Usually runs one program	Runs an operating system
+Low power	Higher power
+Faster startup	Slower startup
+Best for hardware control	Best for advanced computing
+No OS required	OS usually required
+Easier for beginners	More powerful
+Arduino Uno uses ATmega328P	Raspberry Pi uses ARM processor
+
+Remember:
+Arduino → control hardware
+Raspberry Pi → computer + advanced processing
+
+12. Arduino
+Arduino is an open-source electronics platform consisting of hardware and software.
+
+Birth
+Arduino was developed in Italy around 2005 as an easy-to-use platform for students and beginners.
+
+Open-source community
+Arduino's hardware designs and software are openly available, allowing people to:
+
+Create projects
+
+Modify designs
+
+Share code
+
+Develop libraries
+
+Build compatible boards
+
+13. Arduino Uno Features
+Arduino Uno uses ATmega328P.
+
+Important specifications:
+
+Digital I/O: 14
+
+Analog inputs: 6
+
+PWM pins: 6
+
+Operating voltage: 5V
+
+Flash: 32 KB
+
+SRAM: 2 KB
+
+EEPROM: 1 KB
+
+Clock speed: 16 MHz
+
+14. Arduino UNO Functional Pins
+Digital pins
+0–13
+
+Used for digital input/output.
+
+Analog pins
+A0–A5
+
+Used to read analog values.
+
+PWM
+Pins:
+
+3, 5, 6, 9, 10, 11
+
+Special pins
+0 (RX) → Serial receive
+
+1 (TX) → Serial transmit
+
+SDA/SCL → I²C
+
+MOSI/MISO/SCK → SPI
+
+5V → power
+
+3.3V → power
+
+GND → ground
+
+RESET → reset board
+
+15. Arduino Program Skeleton
+C++
+
+void setup() {
+  // runs once
+}
+
+void loop() {
+  // runs repeatedly
+}
+setup()
+Runs only once when Arduino starts/reset.
+
+Used for:
+
+Pin configuration
+
+Serial communication
+
+Initial settings
+
+loop()
+Runs continuously.
+
+Used for:
+
+Reading sensors
+
+Controlling devices
+
+Repeating tasks
+
+16. Variables
+A variable stores a value that can change.
+
+C++
+
+int age = 20;
+float temperature = 25.5;
+Common types:
+
+int
+
+float
+
+char
+
+boolean
+
+17. Constants
+A constant is a value that does not change.
+
+C++
+
+const int led = 13;
+Common Arduino constants:
+
+HIGH
+
+LOW
+
+INPUT
+
+OUTPUT
+
+18. Scope
+Scope means where a variable can be accessed.
+
+Local variable
+Declared inside a function.
+
+C++
+
+void loop() {
+  int x = 10;
+}
+Can be used only inside loop().
+
+Global variable
+Declared outside functions.
+
+C++
+
+int x = 10;
+
+void setup() {}
+void loop() {}
+Can be accessed by different functions.
+
+19. LED Blinking Without delay()
+Instead of stopping the Arduino using delay(), use millis().
+
+C++
+
+const int led = 13;
+unsigned long previous = 0;
+const long interval = 1000;
+bool state = LOW;
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  unsigned long current = millis();
+
+  if (current - previous >= interval) {
+    previous = current;
+    state = !state;
+    digitalWrite(led, state);
+  }
+}
+Why millis()?
+delay() blocks the program.
+
+millis() allows Arduino to perform other tasks while waiting.
+
+20. Active & Passive Elements
+Passive elements
+Cannot provide power gain.
+
+Examples:
+
+Resistor
+
+Capacitor
+
+Inductor
+
+Active elements
+Can control/amplify electrical signals.
+
+Examples:
+
+Transistor
+
+Operational amplifier
+
+IC
+
+21. Resistor
+A resistor opposes the flow of current.
+
+Unit: Ohm (Ω)
+
+Uses:
+
+Current limiting
+
+Voltage division
+
+Pull-up/pull-down
+
+22. Capacitor
+Stores electrical energy in an electric field.
+
+Unit: Farad (F)
+
+Uses:
+
+Filtering
+
+Smoothing
+
+Timing
+
+Energy storage
+
+23. Inductor
+Stores energy in a magnetic field.
+
+Unit: Henry (H)
+
+Uses:
+
+Filters
+
+Power supplies
+
+Chokes
+
+24. Transistor
+A transistor is a semiconductor device used mainly for:
+
+Switching
+
+Amplification
+
+25. Ohm's Law
+Formula:
+V = IR
+
+Where:
+
+V = Voltage
+
+I = Current
+
+R = Resistance
+
+Therefore:
+
+I = V/R
+
+R = V/I
+
+26. Voltage Divider
+For two resistors:
+
+Vout = Vin × R₂/(R₁ + R₂)
+
+Used to obtain a smaller voltage from a larger voltage.
+
+27. Current Divider
+For two parallel resistors:
+
+I₁ = I × R₂/(R₁ + R₂)
+
+Current divides between parallel branches.
+
+28. Pull-up & Pull-down Resistors
+Used to prevent a digital input from floating.
+
+Pull-up
+Input is normally HIGH.
+
+Pull-down
+Input is normally LOW.
+
+Easy memory:
+
+Pull-up → HIGH
+Pull-down → LOW
+
+29. Digital vs Analog
+Digital	Analog
+Discrete values	Continuous values
+Usually HIGH/LOW	Range of values
+0 or 1	Example 0–1023 on Arduino ADC
+digitalRead()	analogRead()
+
+30. Debouncing
+Mechanical switches can produce multiple rapid ON/OFF signals when pressed.
+
+This is called switch bouncing.
+
+Debouncing removes these unwanted signals.
+
+Methods:
+
+Software delay/timing
+
+Hardware capacitor
+
+Software state checking
+
+31. PWM
+PWM = Pulse Width Modulation
+
+Used to control:
+
+LED brightness
+
+Motor speed
+
+Servo control
+
+Arduino function:
+
+C++
+
+analogWrite(pin, value);
+For Arduino Uno:
+
+0 → 0% duty cycle
+255 → 100% duty cycle
+
+Example:
+
+C++
+
+analogWrite(9, 128);
+Approximately 50% duty cycle.
+
+32. Digital Interfacing
+LED
+Arduino digital output controls LED.
+
+C++
+
+digitalWrite(13, HIGH);
+Switch
+Arduino reads switch state.
+
+C++
+
+digitalRead(2);
+Seven Segment Display
+Used to display digits 0–9 using LED segments.
+
+OLED
+Small display used to show text, numbers and graphics.
+
+Usually communicates using I²C or SPI.
+
+Relay (SPDT)
+SPDT = Single Pole Double Throw
+
+It has:
+
+COM
+
+NO (Normally Open)
+
+NC (Normally Closed)
+
+Used to control high-power devices using a low-power Arduino signal.
+
+DHT11
+Measures:
+
+Temperature
+
+Humidity
+
+33. Analog Interfacing
+Potentiometer
+A variable resistor.
+
+Arduino can read its changing voltage using:
+
+C++
+
+analogRead(A0);
+Arduino Uno ADC gives:
+
+0–1023
+
+LDR
+LDR = Light Dependent Resistor
+
+Its resistance changes according to light.
+
+More light → resistance generally decreases
+
+Less light → resistance generally increases
+
+Used for:
+
+Automatic lights
+
+Light detection
+
+Street-light systems
+
+LM35
+Temperature sensor.
+
+Output voltage is proportional to temperature.
+
+Approximate relation:
+
+10 mV/°C
+
+Example:
+
+25°C → approximately 250 mV
+
+DHT11
+Digital sensor that measures:
+
+Temperature + Humidity
+
+Unlike LM35, DHT11 provides both temperature and humidity.
+
