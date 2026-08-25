@@ -1,0 +1,40 @@
+IoT = Internet of Things
+
+It means connecting physical devices to the internet so they can collect, send, and sometimes act on data automatically.
+
+Simple example
+Smart AC
+
+Sensor detects temperature.
+
+Device sends data through the internet.
+
+IoT system processes it.
+
+AC automatically changes temperature.
+
+Main components
+Sensors → collect data (temperature, motion, distance, etc.)
+
+Connectivity → Wi-Fi, Bluetooth, 4G/5G, etc.
+
+Processing → analyzes the collected data
+
+Cloud/Server → stores and manages data
+
+Actuators → perform actions based on instructions
+
+Examples
+Smart home lights
+
+Smart watches
+
+Smart parking
+
+Smart agriculture
+
+Smart healthcare
+
+Industrial monitoring
+
+Arduino + ultrasonic sensor + buzzer is also a basic IoT-type system when connected to a network.
