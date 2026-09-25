@@ -1,0 +1,109 @@
+DHT11 is a digital sensor used to measure temperature and relative humidity.
+
+It is commonly used with Arduino because it is simple to connect and gives the readings directly as digital data.
+
+1. What does DHT11 measure?
+DHT11 measures two things:
+
+🌡️ Temperature — in °C
+
+💧 Humidity — in %RH (Relative Humidity)
+
+For example:
+
+
+Temperature = 28°C
+Humidity = 65% RH
+2. How does DHT11 measure humidity?
+Inside DHT11 there is a humidity sensing element.
+
+The basic process is:
+
+
+Moisture in air
+      ↓
+Humidity sensing element
+      ↓
+Electrical property changes
+      ↓
+Internal circuit processes it
+      ↓
+Humidity value calculated
+      ↓
+Digital data sent to Arduino
+So Arduino doesn't directly measure water vapor.
+
+The DHT11's internal electronics do the sensing and processing, then send the humidity reading to Arduino.
+
+3. How does DHT11 measure temperature?
+DHT11 also contains a temperature-sensitive element.
+
+As temperature changes, its electrical characteristics change.
+
+The internal circuit processes this and produces a temperature value.
+
+So:
+
+
+Temperature changes
+       ↓
+Temperature sensing element
+       ↓
+Internal processing
+       ↓
+Digital temperature value
+       ↓
+Arduino
+4. DHT11 pins
+The usual DHT11 sensor has 4 pins:
+
+Pin	Function
+1	VCC
+2	DATA
+3	NC (Not Connected)
+4	GND
+
+Some DHT11 modules have only 3 pins:
+
+
+VCC
+DATA
+GND
+because the module already handles the required circuitry.
+
+5. Connection with Arduino
+Typical connection:
+
+
+DHT11        Arduino
+---------------------
+VCC    →     5V
+DATA   →     Digital Pin 2
+GND    →     GND
+If you're using the bare 4-pin DHT11, a pull-up resistor is commonly used between VCC and DATA.
+
+6. Why is DHT11 called a digital sensor?
+This is important for viva.
+
+DHT11 sends data digitally to Arduino through its DATA pin.
+
+Unlike LM35:
+
+
+LM35 → Analog voltage → Arduino ADC
+DHT11:
+
+
+DHT11 → Digital data → Arduino
+Therefore, you don't use:
+
+C++
+
+analogRead()
+to read DHT11.
+
+You normally use a DHT library, such as:
+
+C++
+
+DHT.h
