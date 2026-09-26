@@ -1,0 +1,85 @@
+1. What does LM35 measure?
+LM35 measures temperature only.
+
+For every 1°C increase, its output voltage increases by approximately 10 mV.
+
+So:
+
+Temperature	LM35 Output
+0°C	0 V
+10°C	0.10 V
+20°C	0.20 V
+25°C	0.25 V
+30°C	0.30 V
+50°C	0.50 V
+
+This 10 mV/°C relationship is the key principle of LM35.
+
+2. How does LM35 work?
+The basic process is:
+
+
+Temperature
+     ↓
+LM35 sensing circuit
+     ↓
+Produces proportional voltage
+     ↓
+Arduino analog pin
+     ↓
+ADC converts voltage to digital value
+     ↓
+Arduino calculates temperature
+For example, if the temperature is approximately 30°C:
+
+
+30°C
+ ↓
+LM35 produces ≈ 0.30 V
+ ↓
+Arduino reads the voltage
+ ↓
+Arduino calculates ≈ 30°C
+3. Why is LM35 called an analog sensor?
+Because its output is a continuous voltage.
+
+For example, it can produce:
+
+
+0.20 V
+0.21 V
+0.22 V
+0.23 V
+...
+Arduino reads this voltage using an analog input pin, such as A0.
+
+Your practical uses:
+
+C++
+
+#define LM35_PIN A0
+So the LM35 output is connected to A0.
+
+4. LM35 pins
+The common LM35 has 3 pins:
+
+
+        LM35
+      ┌───────┐
+      │       │
+  VCC │       │
+  OUT │       │
+  GND │       │
+      └───────┘
+Typical connection:
+
+LM35	Arduino
+VCC	5V
+OUT	A0
+GND	GND
+
+So remember:
+
+VCC → 5V
+OUT → A0
+GND → GND
