@@ -1,0 +1,40 @@
+Advanced Linearization Code (FSR)
+
+
+const int fsrPin = A0;
+const float Vcc = 5.0;
+const float R_ref = 10000.0; // 10k Ohm reference resistor
+
+void setup() {
+  Serial.begin(115200);
+}
+
+void loop() {
+  int adcRaw = analogRead(fsrPin);
+  
+  // Prevent division by zero when no force is applied
+  if (adcRaw < 5) {
+    Serial.println("Force: 0.00 N");
+    delay(100);
+    return;
+  }
+
+  // 1. Convert ADC to Voltage
+  float voltage = (adcRaw * Vcc) / 1023.0;
+  
+  // 2. Calculate FSR Resistance: R_fsr = R_ref * ((Vcc / voltage) - 1.0)
+  float R_fsr = R_ref * ((Vcc / voltage) - 1.0);
+  
+  // 3. Calculate Conductance (1/R)
+  float conductance = 1.0 / R_fsr;
+  
+  // 4. Map Conductance to Force (Newtons)
+  // Note: Multiplier derived from FSR 402 datasheet
+  float forceNewtons = conductance * 11375.0; 
+  
+  Serial.print("Raw: "); Serial.print(adcRaw);
+  Serial.print(" | Resistance: "); Serial.print(R_fsr); Serial.print(" ohms");
+  Serial.print(" | Force: "); Serial.print(forceNewtons); Serial.println(" N");
+  
+  delay(100);
+}   
