@@ -1,1 +1,38 @@
-gas sensor
+#define DO_PIN 2  // Digital pin connected to MQ-2 DO pin
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(DO_PIN, INPUT);
+  Serial.println("Warming up the MQ2 sensor");
+  delay(20000);
+}
+
+void loop() {
+  int gasState = digitalRead(DO_PIN);
+  if (gasState == HIGH) {
+    Serial.println("The gas is NOT present");
+  } else {
+    Serial.println("The gas is present");
+  }
+  delay(1000);
+}   
+
+#define MQ2pin A0  // Analog pin connected to MQ-2 sensor
+int sensorValue;
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("MQ2 warming up!");
+  delay(20000); // Allow sensor to warm up
+}
+
+void loop() {
+  sensorValue = analogRead(MQ2pin);
+  Serial.print("Sensor Value: ");
+  Serial.println(sensorValue);
+
+  if (sensorValue > 400) { // Adjust threshold as needed
+    Serial.println("Gas detected!");
+  }
+  delay(2000);
+}   
