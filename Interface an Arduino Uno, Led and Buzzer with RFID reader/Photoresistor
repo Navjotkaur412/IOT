@@ -1,1 +1,70 @@
-photoresistor
+photoresistor with nodeMCU :
+
+
+int ldrPin = A0;
+
+int ldrValue = 0;
+int lightPercentage = 0;
+
+void setup() {
+  Serial.begin(9600);
+
+  Serial.println("Photoresistor Monitoring System");
+  Serial.println("--------------------------------");
+
+  delay(1000);
+}
+
+void loop() {
+  // Read the LDR sensor value
+  ldrValue = analogRead(ldrPin);
+
+  // Convert the reading into a percentage
+  lightPercentage = map(ldrValue, 0, 1023, 0, 100);
+
+  // Display sensor information
+  Serial.println();
+  Serial.println("Light Sensor Readings");
+
+  Serial.print("Raw LDR Value: ");
+  Serial.println(ldrValue);
+
+  Serial.print("Light Percentage: ");
+  Serial.print(lightPercentage);
+  Serial.println("%");
+
+  // Check the light intensity
+  if (ldrValue < 200) {
+    Serial.println("Light Status: Very Low Light");
+  }
+  else if (ldrValue < 400) {
+    Serial.println("Light Status: Low Light");
+  }
+  else if (ldrValue < 700) {
+    Serial.println("Light Status: Medium Light");
+  }
+  else {
+    Serial.println("Light Status: Bright Light");
+  }
+
+  // Display a message based on light intensity
+  if (lightPercentage < 25) {
+    Serial.println("Message: The surrounding area is dark.");
+  }
+  else if (lightPercentage < 50) {
+    Serial.println("Message: The surrounding area has dim light.");
+  }
+  else if (lightPercentage < 75) {
+    Serial.println("Message: The surrounding area is well lit.");
+  }
+  else {
+    Serial.println("Message: The surrounding area is very bright.");
+  }
+
+  Serial.println("--------------------------------");
+
+  // Wait before taking the next reading
+  delay(2000);
+}
+
+
